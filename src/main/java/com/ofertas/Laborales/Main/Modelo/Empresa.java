@@ -25,7 +25,7 @@ public class Empresa {
 	private String razonSocial;
 
 	@Column(nullable = false)
-	private String nomComercial;
+	private String nomSurcursal;
 
 	@Column(nullable = false)
 	private String dirComercial;
@@ -72,12 +72,12 @@ public class Empresa {
 		this.razonSocial = razonSocial;
 	}
 
-	public String getNomComercial() {
-		return nomComercial;
+	public String getNomSurcursal() {
+		return nomSurcursal;
 	}
 
-	public void setNomComercial(String nomComercial) {
-		this.nomComercial = nomComercial;
+	public void setNomSurcursal(String nomSurcursal) {
+		this.nomSurcursal = nomSurcursal;
 	}
 
 	public String getDirComercial() {
