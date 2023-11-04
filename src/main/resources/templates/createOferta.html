@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Registrar Oferta</title>
+</head>
+
+<body>
+	<h1>Registrar Oferta Laboral</h1>
+	<form th:action="@{/ofertas/create}" th:object="${oferta}" method="post">
+		<label for="nombreOferta">Nombre de Oferta:</label>
+		<input type="text" id="nombreOferta" th:field="*{nombreOferta}" required />
+		<br />
+		<label for="idEmpresa">Empresa:</label>
+		<input type="text" id="idEmpresa" th:field="*{idEmpresa}" required />
+		<br />
+		<label for="fechaPublicacion">Fecha de Publicación:</label>
+		<input type="text" id="fechaPublicacion" th:field="*{fechaPublicacion}" required />
+		<br />
+		<label for="fechaVencimiento">Fecha de Vencimiento:</label>
+		<input type="text" id="fechaVencimiento" th:field="*{fechaVencimiento}" required />
+		<br />
+		<label for="descripcion">Descripción:</label>
+		<input type="text" id="descripcion" th:field="*{descripcion}" required />
+		<br />
+		<label for="detalle">Detalles:</label>
+		<input type="text" id="detalle" th:field="*{detalle}" required />
+		<br />
+		<label for="requisitos">Requisitos:</label>
+		<input type="text" id="requisitos" th:field="*{requisitos}" required />
+		<br />
+
+		<label for="salario">Salario Referencial:</label>
+		<input type="text" id="salario" th:field="*{salario}" required />
+		<br />
+		<label for="departamento">Departamento:</label>
+		<input type="text" id="departamento" th:field="*{departamento}" required />
+		<br />
+		<label for="distrito">Distrito:</label>
+		<input type="text" id="distrito" th:field="*{distrito}" required />
+		<br />
+		<label for="area">Area de Especialidad:</label>
+		<input type="text" id="area" th:field="*{area}" required />
+		<br />
+		<label for="modalidadTrabajo">Modalidad de Trabajo:</label>
+		<!-- <input type="text" id="modalidadTrabajo" th:field="*{modalidadTrabajo}" required />-->
+		<select th:field="*{modalidadTrabajo}">
+			<option th:value="''" th:text="Seleccione..."></option>
+			<option th:value="'Presencial'" th:text="Presencial"></option>
+			<option th:value="'Semi-Presencial'" th:text="Semi-Presencial"></option>
+			<option th:value="'Remoto'" th:text="Remoto"></option>
+		</select>
+		<br />		
+		<!-- agregado para unir la columna a nivel-->
+		<label for="nivel">Nivel Laboral:</label>
+		<select id="nivel" name="nivel.id">
+            <option value="">Seleccione nivel...</option>
+		    <option th:each="nivel : ${niveles}" th:value="${nivel.id}" th:text="${nivel.name}"></option>
+		</select>
+				
+		
+		<!-- Lista de niveles desde BD pero no funciona
+		<select th:field="*{niveLaboral}">
+		    <option th:each="nivel : ${listaniveles}" th:value="${nivel.id}" th:text="${nivel.name}"></option>
+		</select>
+		-->
+		<!-- 
+		<select th:field="*{niveLaboral}">
+			Lista configurada con valores estáticos
+			<option th:value="''" th:text="Seleccione..."></option>
+			<option th:value="'Junior'" th:text="Junior"></option>
+			<option th:value="'Semisenior'" th:text="Semi-senior"></option>
+			<option th:value="'Senior'" th:text="Senior"></option>
+		</select>
+		-->
+		<br>
+		<input type="submit" value="Create" />
+	</form>
+	<a href="/ofertas">regresar a Lista de ofertas</a>
+</body>
+
+</html>

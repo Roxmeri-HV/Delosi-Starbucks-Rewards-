@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Actualizar Empresa</title>
+</head>
+
+<body>
+	<h1>Actualizar Empresa</h1>
+	<form th:action="@{/empresas/create}" th:object="${empresa}" method="post">
+		<label for="catRubro">Rubro:</label>
+		<input type="text" id="catRubro" th:field="*{catRubro}" required />
+		<br />
+		<label for="ruc">Ruc:</label>
+		<input type="text" id="ruc" th:field="*{ruc}" required />
+		<br />
+		<label for="razonSocial">Razon Social:</label>
+		<input type="text" id="razonSocial" th:field="*{razonSocial}" required />
+		<br />
+		<label for="nomComercial">Nombre Comercial:</label>
+		<input type="text" id="nomComercial" th:field="*{nomComercial}" required />
+		<br />
+		<label for="dirComercial">Dirección:</label>
+		<input type="text" id="dirComercial" th:field="*{dirComercial}" required />
+		<br />
+		<label for="telefono">Telefono:</label>
+		<input type="text" id="telefono" th:field="*{telefono}" required />
+		<br />
+		<label for="cantEmpleado">Cantidad de empleados:</label>
+		<input type="text" id="cantEmpleado" th:field="*{cantEmpleado}" required />
+		<br />
+
+		<input type="submit" value="Create" />
+	</form>
+	<a href="/empresas">regresar a Lista de empresas</a>
+</body>
+
+</html>

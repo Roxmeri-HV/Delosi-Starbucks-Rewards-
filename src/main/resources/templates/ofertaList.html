@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Lista Oferta</title>
+</head>
+
+<body>
+	<h1>Lista Oferta</h1>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Nombre de Oferta</th>
+			<th>Empresa</th>
+			<th>Fecha de Publicación</th>
+			<th>Fecha de Vencimiento</th>
+			<th>Descripción</th>
+			<th>Detalles</th>
+			<th>Requisitos</th>
+			<th>Salario Referencial</th>
+			<th>Departamento</th>
+			<th>Distrito</th>
+			<th>Area de Especialidad</th>
+			<th>Modalidad de Trabajo</th>
+			<th>Nivel Laboral</th>
+
+			<th>Acciones</th>
+		</tr>
+		<tr th:each="oferta : ${ofertas}">
+			<td th:text="${oferta.id}"></td>
+			<td th:text="${oferta.nombreOferta}"></td>
+			<td th:text="${oferta.idEmpresa}"></td>
+			<td th:text="${oferta.fechaPublicacion}"></td>
+			<td th:text="${oferta.fechaVencimiento}"></td>
+			<td th:text="${oferta.descripcion}"></td>
+			<td th:text="${oferta.detalle}"></td>
+			<td th:text="${oferta.requisitos}"></td>
+			<td th:text="${oferta.salario}"></td>
+			<td th:text="${oferta.departamento}"></td>
+			<td th:text="${oferta.distrito}"></td>
+			<td th:text="${oferta.area}"></td>
+			<td th:text="${oferta.modalidadTrabajo}"></td>
+			<td th:text="${oferta.nivel.name}"></td>																		
+			<td><a th:href="@{/ofertas/update/{id}(id=${oferta.id})}">Editar</a>
+				<a th:href="@{/ofertas/delete/{id}(id=${oferta.id})}">Eliminar</a>
+			</td>
+		</tr>
+	</table>
+	<a href="/ofertas/create">Registrar Oferta Laboral</a>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Registrar Encuesta</title>
+</head>
+
+<body>
+	<h1>Registrar Encuesta</h1>
+	<form th:action="@{/encuestas/create}" th:object="${encuesta}" method="post">
+		<label for="tipoencuesta">Tipo de Encuesta:</label>
+		<input type="text" id="tipoencuesta" th:field="*{tipoencuesta}" required />
+		<br />
+		<label for="Preg01">Pregunta01:</label>
+		<input type="text" id="Preg01" th:field="*{Preg01}" required />
+		<br />
+		<label for="Preg02">Pregunta02:</label>
+		<input type="text" id="Preg02" th:field="*{Preg02}" required />
+		<br />
+		<label for="Preg03">Pregunta03:</label>
+		<input type="text" id="Preg03" th:field="*{Preg03}" required />
+		<br />
+		<label for="Preg04">Pregunta04:</label>
+		<input type="text" id="Preg04" th:field="*{Preg04}" required />
+		<br />
+		<label for="Preg05">Pregunta05:</label>
+		<input type="text" id="Preg05" th:field="*{Preg05}" required />
+		<br />
+
+
+
+		<input type="submit" value="Create" />
+	</form>
+	<a href="/encuestas">Regresar a Lista Encuesta</a>
+</body>
+
+</html>

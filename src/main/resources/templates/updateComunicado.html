@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Registrar Comunicado</title>
+</head>
+
+<body>
+	<h1>Registrar Comunicado</h1>
+	<form th:action="@{/comunicados/update/{id}(id=${comunicado.id})}" th:object="${comunicado}" method="post">	
+		<label for="asunto">Asunto de Comunicado:</label>
+		<input type="text" id="asunto" th:field="*{asunto}" required />
+		<br />
+		<label for="idEmpresa">Empresa:</label>
+		<input type="text" id="idEmpresa" th:field="*{idEmpresa}" required />
+		<br />
+		<label for="fechaPublicacion">Fecha de Publicación:</label>
+		<input type="text" id="fechaPublicacion" th:field="*{fechaPublicacion}" required />
+		<br />
+		<label for="fechaVencimiento">Fecha de Vencimiento:</label>
+		<input type="text" id="fechaVencimiento" th:field="*{fechaVencimiento}" required />
+		<br />
+		<label for="descripcion">Descripción:</label>
+		<input type="text" id="descripcion" th:field="*{descripcion}" required />
+		<br />
+		<label for="estado">Estado:</label>
+		<input type="text" id="estado" th:field="*{estado}" required />
+		<br />
+		<input type="submit" value="Update" />	
+	</form>
+	<a href="/comunicados">regresar a Lista de comunicados</a>
+</body>
+
+</html>

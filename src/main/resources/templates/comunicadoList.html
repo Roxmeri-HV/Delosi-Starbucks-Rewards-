@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Lista Comunicados</title>
+</head>
+
+<body>
+	<h1>Lista Comunicados</h1>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Asunto Comunicado</th>
+			<th>Empresa</th>
+			<th>Fecha de Publicación</th>
+			<th>Fecha de Vencimiento</th>
+			<th>Descripción</th>
+			<th>Estado</th>
+
+			<th>Acciones</th>
+		</tr>
+		<tr th:each="comunicado : ${comunicados}">
+			<td th:text="${comunicado.id}"></td>
+			<td th:text="${comunicado.asunto}"></td>
+			<td th:text="${comunicado.idEmpresa}"></td>
+			<td th:text="${comunicado.fechaPublicacion}"></td>
+			<td th:text="${comunicado.fechaVencimiento}"></td>
+			<td th:text="${comunicado.descripcion}"></td>
+			<td th:text="${comunicado.estado}"></td>
+																	
+			<td><a th:href="@{/comunicados/update/{id}(id=${comunicado.id})}">Editar</a>
+				<a th:href="@{/comunicados/delete/{id}(id=${comunicado.id})}">Eliminar</a>
+			</td>
+		</tr>
+	</table>
+	<a href="/comunicados/create">Registrar Comunicados Internos</a>
+</body>
+
+</html>

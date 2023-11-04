@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Niveles</title>
+</head>
+<body>
+    <h1>Niveles</h1>
+    <select>
+        <option th:each="nivel : ${niveles}" th:value="${nivel.id}" th:text="${nivel.name}"></option>
+    </select>
+</body>
+</html>

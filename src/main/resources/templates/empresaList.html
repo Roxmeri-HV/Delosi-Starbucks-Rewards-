@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Lista Empresa</title>
+</head>
+
+<body>
+	<h1>Lista Empresa</h1>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Rubro</th>
+			<th>Ruc</th>
+			<th>Razon Social</th>
+			<th>Nombre Comercial</th>
+			<th>Dirección</th>
+			<th>Telefono</th>
+			<th>Cantidad Empleados</th>
+
+			<th>Acciones</th>
+		</tr>
+		<tr th:each="empresa : ${empresas}">
+			<td th:text="${empresa.id}"></td>
+			<td th:text="${empresa.catRubro}"></td>
+			<td th:text="${empresa.ruc}"></td>
+			<td th:text="${empresa.razonSocial}"></td>
+			<td th:text="${empresa.nomComercial}"></td>
+			<td th:text="${empresa.dirComercial}"></td>
+			<td th:text="${empresa.telefono}"></td>
+			<td th:text="${empresa.cantEmpleado}"></td>
+			<td>
+				<a th:href="@{/empresas/update/{id}(id=${empresa.id})}">Editar</a>
+				<a th:href="@{/empresas/delete/{id}(id=${empresa.id})}">Eliminar</a>
+			</td>
+		</tr>
+	</table>
+	<a href="/empresas/create">Registrar Empresa</a>
+</body>
+
+</html>

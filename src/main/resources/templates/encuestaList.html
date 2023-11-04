@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Encuestas</title>
+</head>
+<body>
+    <h1>Encuesta de satisfacción</h1>
+    <table>
+        <tr>
+            <th>Tipo de Encuesta</th>
+            <th>Pregunta1</th>
+            <th>Pregunta2</th>
+            <th>Pregunta3</th>
+            <th>Pregunta4</th>
+            <th>Pregunta5</th>
+        </tr>
+        <tr th:each="encuesta : ${encuestas}">
+            <td th:text="${encuesta.tipoencuesta}"></td>
+            <td th:text="${encuesta.Preg01}"></td>
+            <td th:text="${encuesta.Preg02}"></td>
+            <td th:text="${encuesta.Preg03}"></td>
+            <td th:text="${encuesta.Preg04}"></td>
+            <td th:text="${encuesta.Preg05}"></td>
+
+            <td>
+                <a th:href="@{/encuestas/update/{id}(id=${encuesta.id})}">Editar</a>
+                <a th:href="@{/encuestas/delete/{id}(id=${encuesta.id})}">Eliminar</a>
+            </td>
+        </tr>
+    </table>
+    <a href="/encuestas/create">Registrar Encuesta</a>
+</body>
+</html>

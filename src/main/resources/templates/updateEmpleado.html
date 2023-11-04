@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Create Empleado</title>
+</head>
+
+<body>
+	<h1>Create Empleado</h1>
+		<form th:action="@{/empleados/update/{id}(id=${empleado.id})}" th:object="${empleado}" method="post">
+			
+		<label for="tipoDocumento">Tipo Documento:</label>
+		<input type="text" id="tipoDocumento" th:field="*{tipoDocumento}" required />
+		<br />
+		<label for="nombres">Nombres:</label>
+		<input type="text" id="nombres" th:field="*{nombres}" required />
+		<br />
+		<label for="apellidos">Apellidos:</label>
+		<input type="text" id="apellidos" th:field="*{apellidos}" required />
+		<br />
+		<label for="estado">Estado:</label>
+		<input type="text" id="estado" th:field="*{estado}" required />
+		<br />
+		<label for="numDoc">Numero de Documento:</label>
+		<input type="text" id="numDoc" th:field="*{numDoc}" required />
+		<br />
+		<label for="correo">correo:</label>
+		<input type="text" id="correo" th:field="*{correo}" required />
+		<br />
+		<label for="cantEmpleado">Cantidad de empleados:</label>
+		<input type="text" id="cantEmpleado" th:field="*{cantEmpleado}" required />
+		<br />
+
+		<input type="submit" value="update" />
+	</form>
+	<a href="/empleados">Back to Empleado List</a>
+</body>
